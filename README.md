@@ -72,4 +72,4 @@ You've responded to a destress call from the Tribble homeworld, Iota Geminorum I
 
 Initial sketch/wireframe
 
-![Game Wireframe](/wireframe/wireframe.png)
+![Game Wireframe](/images/wireframe/wireframe.png)
