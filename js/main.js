@@ -1,1 +1,3 @@
-console.log("It's me main.js");
+// console.log("It's me main.js");
+
+let points = 0;
