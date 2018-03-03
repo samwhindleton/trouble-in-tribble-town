@@ -28,9 +28,8 @@ const $klingons = $(".klingons");
 //
 // listen for $startButton click
 $($startButton).click((event) => {
-  // console log if clicked
-  console.log("I clicked START");
-  console.log(points);
+  // reset points variable
+  points = 0;
   // detach $startButton, $socialMediaContainer, $titleContainer
   $startButton.detach();
   $socialMediaContainer.detach();
@@ -44,6 +43,7 @@ $($startButton).click((event) => {
   });;
 // end $startButton click event listener function
 });
+//
 // listen for $tribble click
 $($tribbles).click((event) => {
   // console log if clicked
