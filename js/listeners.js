@@ -15,12 +15,6 @@ const $titleContainer = $("#title-container");
 const $socialMediaContainer = $("#social-media-container");
 // assign $startButton to value #start-button>h1
 const $startButton = $("#start-button>h1");
-//
-// game charaters
-// assign $tribble to value .tribble
-const $tribbles = $(".tribbles");
-// assign $klingons to value .klingons
-const $klingons = $(".klingons");
 
 // ########################################
 // # click event listeners
@@ -28,8 +22,6 @@ const $klingons = $(".klingons");
 //
 // listen for $startButton click
 $($startButton).click((event) => {
-  // reset points variable
-  points = 0;
   // detach $startButton, $socialMediaContainer, $titleContainer
   $startButton.detach();
   $socialMediaContainer.detach();
@@ -41,23 +33,51 @@ $($startButton).click((event) => {
   $charContainer.css({
     height:"100vh",
   });;
+  // start the game
+  startGame();
 // end $startButton click event listener function
 });
+
+// ########################################
+// # game round start listener
+// ########################################
 //
-// listen for $tribble click
-$($tribbles).click((event) => {
-  // console log if clicked
-  console.log("I clicked a tribble");
-  points += 1;
-  console.log(points);
-// end $tribble click event listener function
-});
-//
-// listen for $klingons click
-$($klingons).click((event) => {
-  // console log if clicked
-  console.log("I clicked a klingons");
-  points -= 1;
-  console.log(points);
-// end $klingons click event listener function
-});
+// ## step 3 ##
+// append
+const renderGameChars = () => {
+  console.log("Appending Tribbles");
+  // for loop to render $tribbles and $klingons
+  // on startRound
+  for (let i = 0; i < 5; i++) {
+    console.log("Adding div: " + i);
+    // game charaters variables
+    // assign $tribbles to value div.tribble
+    const $tribbles = $("<div>").addClass("tribbles");
+    // assign $klingons to value .klingons
+    const $klingons = $("<div>").addClass("klingons");;
+    //
+
+    $("#char-container").append($tribbles);
+    $("#char-container").append($klingons);
+
+    // listen for $tribbles click
+    $($tribbles).click((event) => {
+      // console log if clicked
+      console.log("I clicked a tribble");
+      points += 1;
+      console.log(points);
+    // end $tribbles click event listener function
+    });
+    // listen for $klingons click
+    $($klingons).click((event) => {
+      // console log if clicked
+      console.log("I clicked a klingons");
+      points -= 1;
+      console.log(points);
+    // end $klingons click event listener function
+    });
+  // end for loop
+  };
+  // go to step 4
+  gameRoundTimer();
+}
