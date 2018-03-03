@@ -56,5 +56,56 @@ table {
   MAIN CSS
 **************************************** */
 body {
+  height: 100vh;
+  width: 100vw;
   background: #fe1476;
+  /* flexbox */
+  /* centers child horizontally and vertically */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+/* main container */
+#container {
+  height: 100vh;
+  width: 100vw;
+  background: #ece0e5;
+}
+/* game container */
+#game-container, #char-container {
+  height: 75vh;
+  width: 100vw;
+  background: limegreen;
+}
+
+.tribbles, .klingons  {
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+  height: 5em;
+  width: 5em;
+}
+
+.klingons {
+  background: red;
+}
+
+/* title container */
+#title-container {
+  height: 16vh;
+  width: 100vw;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: aqua;
+}
+
+/* social media container */
+#social-media-container {
+  height: 9vh;
+  width: 100vw;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: yellow;
 }
