@@ -73,3 +73,40 @@ You've responded to a destress call from the Tribble homeworld, Iota Geminorum I
 Initial sketch/wireframe
 
 ![Game Wireframe](/images/wireframe/wireframe.png)
+
+---
+
+### Tasks To Complete
+
+Tasks to complete list is not in order.
+
+| Tasks To Do List |
+| --- |
+| game/webpage layout |
+| basic element styling |
+| click event listeners |
+| animate game objects |
+| timer |
+| game start function |
+| game reset function |
+| host on website/github pages |
+| game win state |
+| game lose state |
+| multiple rounds |
+| falling/moving objects |
+| remove object from dom when below x value |
+
+### Tasks Completed
+
+Tasks completed list is in order.
+
+| # | Tasks Completed | Timeline |
+| --- | --- | --- |
+| 1. | Created required directories and files | 02 March 2018 |
+| 2. | Created HTML boilerplate | 02 March 2018 |
+| 3. | Added CSS Reset to style.css | 02 March 2018 |
+| 4. | Checked CSS and JS files linked | 02 March 2018 |
+| 5. | Added div/containers for gameplay area | 02 March 2018 |
+| 6. | Added temporary styling to containers and game objects | 02 March 2018 |
+| 7. | Created click event listeners for game objects | 02 March 2018 |
+| 8. | Created variable to keep track of player points | 02 March 2018 |
