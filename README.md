@@ -87,7 +87,6 @@ Tasks to complete list is not in order.
 | click event listeners |
 | animate game objects |
 | timer |
-| game start function |
 | game reset function |
 | host on website/github pages |
 | game win state |
@@ -110,3 +109,5 @@ Tasks completed list is in order.
 | 6. | Added temporary styling to containers and game objects | 02 March 2018 |
 | 7. | Created click event listeners for game objects | 02 March 2018 |
 | 8. | Created variable to keep track of player points | 02 March 2018 |
+| 9. | Created start button. Combined elements that are styled the same in css | 02 March 2018 |
+| 10. | Created start button click event listener | 02 March 2018 |
