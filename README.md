@@ -84,14 +84,11 @@ Tasks to complete list is not in order.
 | --- |
 | game/webpage layout |
 | basic element styling |
-| click event listeners |
 | animate game objects |
-| timer |
 | game reset function |
 | host on website/github pages |
 | game win state |
 | game lose state |
-| multiple rounds |
 | falling/moving objects |
 | remove object from dom when below x value |
 
@@ -111,3 +108,11 @@ Tasks completed list is in order.
 | 8. | Created variable to keep track of player points | 02 March 2018 |
 | 9. | Created start button. Combined elements that are styled the same in css | 02 March 2018 |
 | 10. | Created start button click event listener | 02 March 2018 |
+| 1. | Added loop for game rounds when game starts | 03 March 2018 |
+| 2. | Added function to append game chars onto char container div | 03 March 2018 |
+| 3. | Now clears screen prior to next round start | 03 March 2018 |
+| 4. | Added containers for rounds, timer, and points. Minimum css styling added. | 03 March 2018 |
+| 5. | Characters are now removed from the dom when clicked | 03 March 2018 |
+| 6. | Added display update to points and round containers | 03 March 2018 |
+| 7. | Disabled text highlighting by player | 03 March 2018 |
+| 1. | Added countdown timer function, updates round time remaining in time container | 04 March 2018 |
