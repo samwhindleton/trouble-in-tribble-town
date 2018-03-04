@@ -29,8 +29,8 @@ const gameRoundTimer = () => {
     } else {
       console.log("You lost the round");
     };
-  // 16 seconds
-}, 16000);
+  // 11 seconds
+  }, 11000);
 };
 
 // ## step 2 ##

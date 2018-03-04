@@ -60,10 +60,10 @@ const renderGameChars = () => {
   // check gameRoundCharAmount array, amount of $tribbles and $klingons
   for (let i = 0; i < gameRoundCharAmount[arrayIndex]; i++) {
     // game charaters variables
-    // assign $tribbles to value div.tribble
-    const $tribbles = $("<div>").addClass("tribbles");
-    // assign $klingons to value .klingons
-    const $klingons = $("<div>").addClass("klingons");;
+    // assign $tribbles to value div.tribble.char-animation
+    const $tribbles = $("<div>").addClass("tribbles char-animation");
+    // assign $klingons to value .klingons.char-animation
+    const $klingons = $("<div>").addClass("klingons char-animation");;
     // append $tribbles and $klingons
     $("#char-container").append($tribbles);
     $("#char-container").append($klingons);
@@ -101,7 +101,7 @@ const renderGameChars = () => {
 // countdown timer for round time display
 const countdownTimer = () => {
   // seconds variable, start at 15
-  let seconds = 15;
+  let seconds = 10;
   // seconds interval function
   const interval = setInterval(() => {
     // if seconds === 0

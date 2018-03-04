@@ -60,6 +60,8 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   width: 100vw;
   background: #fe1476;
   font-family: 'Helvetica', 'Arial', sans-serif;
+  /* clip overflow from tribbles and klingons */
+  overflow: hidden;
   user-select: none;
   /* flexbox */
   /* centers child horizontally and vertically */
@@ -125,6 +127,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   width: 30vw;
   background: white;
   border-radius: 10px;
+  cursor: pointer;
   font-size: 9vmin;
   z-index: 101;
 }
@@ -134,6 +137,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   position: relative;
   background: white;
   border-radius: 50%;
+  cursor: pointer;
   display: inline-block;
   height: 14vmin;
   width: 14vmin;
@@ -142,6 +146,27 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 .klingons {
   background: red;
 }
+/* characters animation */
+.char-animation {
+  animation-duration: 12s;
+  /* animation-iteration-count: infinite; */
+  animation-name: fallingDown;
+}
+@keyframes fallingDown {
+  /* transform: translate3d(x, y, z); */
+  0% {transform: translate3d(0, -100vh, 0); visibility: visible;}
+  10% {transform: translate3d(0, -50vh, 0);}
+  20% {transform: translate3d(0, 10vh, 0);}
+  30% {transform: translate3d(0, 20vh, 0);}
+  40% {transform: translate3d(0, 30vh, 0);}
+  50% {transform: translate3d(0, 40vh, 0);}
+  60% {transform: translate3d(0, 60vh, 0);}
+  70% {transform: translate3d(0, 70vh, 0);}
+  80% {transform: translate3d(0, 80vh, 0);}
+  90% {transform: translate3d(0, 90vh, 0);}
+  100% {transform: translate3d(0, 100vh, 0); visibility: hidden;}
+}
+
 /* title container */
 #title-container {
   height: 16vh;
