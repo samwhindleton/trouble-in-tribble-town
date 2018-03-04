@@ -1,10 +1,7 @@
-// console.log("jQuery loaded: " + $);
-
 // ########################################
-// # variables
+// # container variables
 // ########################################
 //
-// containers
 // assign $charContainer to value #char-container
 const $charContainer = $("#char-container");
 // assign $gameContainer to value #game-container
@@ -33,7 +30,8 @@ $($startButton).click((event) => {
   $charContainer.css({
     height:"100vh",
   });;
-  // start the game
+  // go to ## step 1 ##
+  // located in: /js/main.js
   startGame();
 // end $startButton click event listener function
 });
@@ -43,41 +41,36 @@ $($startButton).click((event) => {
 // ########################################
 //
 // ## step 3 ##
-// append
+// clear screen, append $tribbles and $klingons.
+// click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
-  console.log("Appending Tribbles");
-  // for loop to render $tribbles and $klingons
-  // on startRound
-  for (let i = 0; i < 5; i++) {
-    console.log("Adding div: " + i);
+  // clear #char-container each round
+  $charContainer.empty();
+  // for loop to render $tribbles and $klingons each round
+  // check gameRoundCharAmount array, amount of $tribbles and $klingons
+  for (let i = 0; i < gameRoundCharAmount[arrayIndex]; i++) {
     // game charaters variables
     // assign $tribbles to value div.tribble
     const $tribbles = $("<div>").addClass("tribbles");
     // assign $klingons to value .klingons
     const $klingons = $("<div>").addClass("klingons");;
-    //
-
+    // append $tribbles and $klingons
     $("#char-container").append($tribbles);
     $("#char-container").append($klingons);
-
+    // click event listeners
     // listen for $tribbles click
     $($tribbles).click((event) => {
-      // console log if clicked
-      console.log("I clicked a tribble");
+      // add 1 to points
       points += 1;
-      console.log(points);
-    // end $tribbles click event listener function
     });
     // listen for $klingons click
     $($klingons).click((event) => {
-      // console log if clicked
-      console.log("I clicked a klingons");
+      // subtract 1 from points
       points -= 1;
-      console.log(points);
-    // end $klingons click event listener function
     });
-  // end for loop
+  // end of for loop
   };
-  // go to step 4
+  // go to ## step 4 ##
+  // located in: /js/main.js
   gameRoundTimer();
-}
+};
