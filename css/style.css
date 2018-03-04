@@ -59,6 +59,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   height: 100vh;
   width: 100vw;
   background: #fe1476;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   /* flexbox */
   /* centers child horizontally and vertically */
   align-items: center;
@@ -70,22 +71,61 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   height: 100vh;
   width: 100vw;
   background: #ece0e5;
+  position: relative;
 }
 /* game container */
-#game-container, #char-container, #start-button {
-  height: 75vh;
+#game-container, #start-button, #char-container  {
+  height: 100vh;
   width: 100vw;
   background: limegreen;
+  position: absolute;
+}
+/* stats container */
+#stats-container {
+  height: 30vh;
+  width: 100vw;
+  background: orange;
+  position: absolute;
+  z-index: 100;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+#round-number, #round-number h1, #round-number h2,
+#timer, #timer h1, #timer h2,
+#points, #points h1, #points h2 {
+  height: 30vh;
+  width: 33vw;
+  background: pink;
+}
+#round-number h1, #round-number h2,
+#timer h1, #timer h2,
+#points h1, #points h2 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#round-number h1, #timer h1, #points h1 {
+  height: 10vh;
+  background: aqua;
+  font-size: 6vmin;
+}
+#round-number h2, #timer h2, #points h2 {
+  height: 20vh;
+  background: brown;
+  font-size: 16vmin;
 }
 /* start button containter */
 #start-button, #start-button h1 {
   position: absolute;
 }
 #start-button h1 {
-  height: 10vh;
-  width: 30vh;
+  height: 18vh;
+  width: 30vw;
   background: white;
   border-radius: 10px;
+  font-size: 9vmin;
+  z-index: 101;
 }
 /* characters */
 .tribbles, .klingons  {
@@ -94,8 +134,9 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   background: white;
   border-radius: 50%;
   display: inline-block;
-  height: 5em;
-  width: 5em;
+  height: 14vmin;
+  width: 14vmin;
+  z-index: 101;
 }
 .klingons {
   background: red;
@@ -105,10 +146,14 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   height: 16vh;
   width: 100vw;
   background: aqua;
+  margin-top: 75vh;
+  position: absolute;
 }
 /* social media container */
 #social-media-container {
   height: 9vh;
   width: 100vw;
   background: yellow;
+  margin-top: 91vh;
+  position: absolute;
 }
