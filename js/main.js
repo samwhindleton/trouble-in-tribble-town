@@ -11,10 +11,10 @@ const gameRoundCharAmount = [10, 20, 40, 80, 160];
 // number of min score to pass each round
 const gameRoundMinScore = [5, 15, 35, 85, 160];
 
-// ## step 4 ##
+// ## step 5 ##
 // game round timer
 const gameRoundTimer = () => {
-  // timer of 5 seconds
+  // wait 6 seconds
   setTimeout(() => {
     // if points are >= to the gameRoundMinScore index
     // of the current arrayIndex number,
@@ -29,8 +29,8 @@ const gameRoundTimer = () => {
     } else {
       console.log("You lost the round");
     };
-  // 5 seconds
-  }, 5000);
+  // 16 seconds
+}, 16000);
 };
 
 // ## step 2 ##
@@ -43,7 +43,7 @@ const startRound = () => {
     if (points >= 0) {
       // go to ## step 3 ##
       // located in: /js/listeners.js
-      renderGameChars();
+      countdownTimer();
     // else player has lost
     } else {
       console.log("You've lost");

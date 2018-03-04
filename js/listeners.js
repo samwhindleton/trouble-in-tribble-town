@@ -48,12 +48,12 @@ $($startButton).click((event) => {
 // # game round start listener
 // ########################################
 //
-// ## step 3 ##
+// ## step 4 ##
 // clear screen, append $tribbles and $klingons.
 // click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
-  //
-  $statsRoundNumber.text(gameRound[arrayIndex])
+  // update #round-number display with gameRound[arrayIndex]
+  $statsRoundNumber.text(gameRound[arrayIndex]);
   // clear #char-container each round
   $charContainer.empty();
   // for loop to render $tribbles and $klingons each round
@@ -88,7 +88,33 @@ const renderGameChars = () => {
     });
   // end of for loop
   };
-  // go to ## step 4 ##
+  // go to ## step 5 ##
   // located in: /js/main.js
   gameRoundTimer();
+};
+
+// ########################################
+// # round countdown timer
+// ########################################
+//
+// ## step 3 ##
+// countdown timer for round time display
+const countdownTimer = () => {
+  // seconds variable, start at 15
+  let seconds = 15;
+  // seconds interval function
+  const interval = setInterval(() => {
+    // if seconds === 0
+    if (seconds === 0) {
+      // stop counting
+      clearInterval(interval);
+    };
+    // update round timer with seconds variable
+    $statsTimerNumber.text(seconds);
+    // subtract 1 from seconds
+    // start interval again
+    seconds -= 1;
+  }, 1000);
+  // go to ## step 4 ##
+  renderGameChars();
 };
