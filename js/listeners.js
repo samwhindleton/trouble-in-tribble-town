@@ -52,6 +52,8 @@ $($startButton).click((event) => {
 // clear screen, append $tribbles and $klingons.
 // click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
+  //
+  $statsRoundNumber.text(gameRound[arrayIndex])
   // clear #char-container each round
   $charContainer.empty();
   // for loop to render $tribbles and $klingons each round
@@ -70,15 +72,19 @@ const renderGameChars = () => {
     $($tribbles).click((event) => {
       // add 1 to points
       points += 1;
+      // update points display
       $statsPointsNumber.text(points);
-      $tribbles.detach();
+      // remove clicked $tribbles from dom
+      $tribbles.remove();
     });
     // listen for $klingons click
     $($klingons).click((event) => {
       // subtract 1 from points
       points -= 1;
+      // update points display
       $statsPointsNumber.text(points);
-      $klingons.detach();
+      // remove clicked $klingons from dom
+      $klingons.remove();
     });
   // end of for loop
   };
