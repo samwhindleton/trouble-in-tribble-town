@@ -62,11 +62,13 @@ const renderGameChars = () => {
     $($tribbles).click((event) => {
       // add 1 to points
       points += 1;
+      $tribbles.detach();
     });
     // listen for $klingons click
     $($klingons).click((event) => {
       // subtract 1 from points
       points -= 1;
+      $klingons.detach();
     });
   // end of for loop
   };
