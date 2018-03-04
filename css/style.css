@@ -91,26 +91,26 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   display: flex;
   justify-content: space-between;
 }
-#round-number, #round-number h1, #round-number h2,
+#round, #round h1, #round h2,
 #timer, #timer h1, #timer h2,
 #points, #points h1, #points h2 {
   height: 30vh;
   width: 33vw;
   background: pink;
 }
-#round-number h1, #round-number h2,
+#round h1, #round h2,
 #timer h1, #timer h2,
 #points h1, #points h2 {
   align-items: center;
   display: flex;
   justify-content: center;
 }
-#round-number h1, #timer h1, #points h1 {
+#round h1, #timer h1, #points h1 {
   height: 10vh;
   background: aqua;
   font-size: 6vmin;
 }
-#round-number h2, #timer h2, #points h2 {
+#round h2, #timer h2, #points h2 {
   height: 20vh;
   background: brown;
   font-size: 16vmin;

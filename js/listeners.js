@@ -11,7 +11,15 @@ const $titleContainer = $("#title-container");
 // assign $socialMediaContainer to value #social-media-container
 const $socialMediaContainer = $("#social-media-container");
 // assign $startButton to value #start-button>h1
-const $startButton = $("#start-button>h1");
+const $startButton = $("#start-button");
+//
+// stats variables
+//
+const $statsRoundNumber = $("#round-number");
+//
+const $statsTimerNumber = $("#timer-number");
+//
+const $statsPointsNumber = $("#points-number");
 
 // ########################################
 // # click event listeners
@@ -62,12 +70,14 @@ const renderGameChars = () => {
     $($tribbles).click((event) => {
       // add 1 to points
       points += 1;
+      $statsPointsNumber.text(points);
       $tribbles.detach();
     });
     // listen for $klingons click
     $($klingons).click((event) => {
       // subtract 1 from points
       points -= 1;
+      $statsPointsNumber.text(points);
       $klingons.detach();
     });
   // end of for loop
