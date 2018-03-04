@@ -60,6 +60,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   width: 100vw;
   background: #fe1476;
   font-family: 'Helvetica', 'Arial', sans-serif;
+  user-select: none;
   /* flexbox */
   /* centers child horizontally and vertically */
   align-items: center;
