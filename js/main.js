@@ -1,48 +1,71 @@
-// console.log("It's me main.js");
-
+// player points
 let points = 0;
+// number used to determine game round,
+// $tribbles and $klingons rendered onto screen,
+// and min score to play next round
 let arrayIndex = 0;
-const gameRound = [0, 1, 2, 3, 4];
-const gameRoundCharAmount = [5, 10, 15, 20, 25]
-const gameRoundMinScore = [2, 3, 4, 5, 6];
+// number of game rounds
+const gameRound = [1, 2, 3, 4, 5];
+// number of $tribbles and $klingons per round array
+const gameRoundCharAmount = [10, 20, 40, 80, 160];
+// number of min score to pass each round
+const gameRoundMinScore = [5, 15, 35, 85, 160];
 
 // ## step 4 ##
-// game timer loop
+// game round timer
 const gameRoundTimer = () => {
-  console.log("Starting round timer");
+  // timer of 5 seconds
   setTimeout(() => {
+    // if points are >= to the gameRoundMinScore index
+    // of the current arrayIndex number,
+    // then player has passed the round...
     if (points >= gameRoundMinScore[arrayIndex]) {
-      console.log("Passed Round: " + gameRound[arrayIndex]);
+      // +1 to the arrayIndex value
       arrayIndex++;
+      // start the next round
+      // go to ## step 2 ##
       startRound();
+    // ...else player has lost
     } else {
-      console.log("You lost");
-      return;
+      console.log("You lost the round");
     };
+  // 5 seconds
   }, 5000);
-}
+};
 
 // ## step 2 ##
-// start round loop
+// start round
 const startRound = () => {
+  // if arrayIndex value if less than
+  // the available rounds...
   if (arrayIndex < gameRound.length) {
-    console.log("startRound");
-    console.log("Starting Round: " + gameRound[arrayIndex]);
-    // go to step 3
-    // located in: /js/listeners.js
-    renderGameChars();
+    // if points >= 0, go to step 3 and render the chars to screen
+    if (points >= 0) {
+      // go to ## step 3 ##
+      // located in: /js/listeners.js
+      renderGameChars();
+    // else player has lost
+    } else {
+      console.log("You've lost");
+    };
+  // ...else if it is equual to the max max rounds
   } else if (arrayIndex = gameRound.length) {
-    console.log("You won!");
+    // if points <= 160, player lost...
+    if (points <= 160) {
+      console.log("You didn't save enough Tribbles");
+    // ...else, player has won
+    } else {
+      console.log("You won!");
+    };
   };
 };
 
 // ## step 1 ##
 // run when start button is clicked
 const startGame = () => {
-  console.log("startGame function");
-  // reset arrayIndex and points variable
+  // reset arrayIndex and points variables
   arrayIndex = 0;
   points = 0;
-  // go to step 2
+  // go to ## step 2 ##
   startRound();
 };
