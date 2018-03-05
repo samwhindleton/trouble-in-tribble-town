@@ -1,11 +1,3 @@
-// ########################################
-// # css variables
-// ########################################
-//
-// css random animation-duration for .char-animation
-// generates random number between 2 - 7, used as seconds
-let animateTime = Math.floor(Math.random() * 7) + 2;
-
 // player points
 let points = 0;
 // number used to determine game round,
@@ -15,9 +7,9 @@ let arrayIndex = 0;
 // number of game rounds
 const gameRound = [1, 2, 3, 4, 5];
 // number of $tribbles and $klingons per round array
-const gameRoundCharAmount = [10, 20, 40, 80, 160];
+const gameRoundCharAmount = [5, 10, 15, 20, 25, 0];
 // number of min score to pass each round
-const gameRoundMinScore = [5, 15, 35, 85, 160];
+const gameRoundMinScore = [1, 5, 10, 15, 20];
 
 // ## step 5 ##
 // game round timer
@@ -37,8 +29,8 @@ const gameRoundTimer = () => {
     } else {
       console.log("You lost the round");
     };
-  // 11 seconds
-  }, 11000);
+  // 16 seconds
+  }, 16000);
 };
 
 // ## step 2 ##
@@ -58,8 +50,8 @@ const startRound = () => {
     };
   // ...else if it is equual to the max max rounds
   } else if (arrayIndex = gameRound.length) {
-    // if points <= 160, player lost...
-    if (points <= 160) {
+    // if points <= 50, player lost...
+    if (points <= 50) {
       console.log("You didn't save enough Tribbles");
     // ...else, player has won
     } else {

@@ -68,6 +68,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   height: 100vh;
   width: 100vw;
   background: #fe1476;
+  cursor: pointer;
   font-family: 'Helvetica', 'Arial', sans-serif;
   /* clip overflow from tribbles and klingons */
   overflow: hidden;
@@ -136,17 +137,15 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   width: 30vw;
   background: white;
   border-radius: 10px;
-  cursor: pointer;
   font-size: 9vmin;
   z-index: 101;
 }
 /* characters */
 .tribbles, .klingons  {
   /* position relative to #start-button */
-  position: relative;
+  position: absolute;
   background: white;
   border-radius: 50%;
-  cursor: pointer;
   display: inline-block;
   height: 7vmin;
   width: 7vmin;
@@ -167,7 +166,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 @keyframes fallDown {
   /* transform: translate2d(x, y); */
   from {
-    transform: translate(0, -128vh);
+    transform: translate(0, -50vh);
   }
   to {
     transform: translate(0, 128vh);
