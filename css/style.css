@@ -95,20 +95,22 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 /* stats container */
 #stats-container {
-  height: 30vh;
+  height: 30vmin;
   width: 100vw;
   background: orange;
+  font-family: 'Sarpanch', sans-serif;
+  letter-spacing: -0.5vmin;
   position: absolute;
   z-index: 100;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 #round, #round h1, #round h2,
 #timer, #timer h1, #timer h2,
 #points, #points h1, #points h2 {
-  height: 30vh;
-  width: 33vw;
+  height: 30vmin;
+  width: 31vw;
   background: pink;
 }
 #round h1, #round h2,
@@ -119,25 +121,27 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   justify-content: center;
 }
 #round h1, #timer h1, #points h1 {
-  height: 10vh;
+  height: 10vmin;
   background: aqua;
-  font-size: 6vmin;
+  font-size: 8vmin;
 }
 #round h2, #timer h2, #points h2 {
-  height: 20vh;
+  height: 20vmin;
   background: brown;
-  font-size: 16vmin;
+  font-size: 22vmin;
 }
 /* start button containter */
 #start-button, #start-button h1 {
   position: absolute;
 }
 #start-button h1 {
-  height: 18vh;
-  width: 30vw;
+  height: 18vmin;
+  width: 60vmin;
   background: white;
-  border-radius: 10px;
-  font-size: 9vmin;
+  border-radius: 1vmin;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 16vmin;
+  letter-spacing: -0.5vmin;
   z-index: 101;
 }
 /* characters */
@@ -160,10 +164,10 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   animation-duration: var(--animation-time);
   /* animation-fill-mode: both; */
   animation-iteration-count: infinite;
-  animation-name: fallDown;
+  animation-name: fall-down;
   animation-timing-function: linear;
 }
-@keyframes fallDown {
+@keyframes fall-down {
   /* transform: translate2d(x, y); */
   from {
     transform: translate(0, -50vh);
@@ -173,14 +177,6 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
     /* display: none; */
   }
 }
-/* title container */
-#title-container {
-  height: 16vh;
-  width: 100vw;
-  background: aqua;
-  margin-top: 75vh;
-  position: absolute;
-}
 /* social media container */
 #social-media-container {
   height: 9vh;
@@ -189,3 +185,25 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   margin-top: 91vh;
   position: absolute;
 }
+/* title container */
+#title-container {
+  height: 16vh;
+  width: 100vw;
+  background: aqua;
+  margin-top: 75vh;
+  position: absolute;
+}
+#title-container h1 {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 10vmin;
+  letter-spacing: -0.5vmin;
+  text-align: center;
+  position: fixed;
+}
+
+/* ****************************************
+  FONTS
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Sarpanch', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+**************************************** */

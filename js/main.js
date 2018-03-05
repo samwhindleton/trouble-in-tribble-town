@@ -43,15 +43,15 @@ const startRound = () => {
     if (points >= 0) {
       // go to ## step 3 ##
       // located in: /js/listeners.js
-      countdownTimer();
+      renderGameChars();
     // else player has lost
     } else {
       console.log("You've lost");
     };
   // ...else if it is equual to the max max rounds
   } else if (arrayIndex = gameRound.length) {
-    // if points <= 50, player lost...
-    if (points <= 50) {
+    // if points < 50, player lost...
+    if (points < 50) {
       console.log("You didn't save enough Tribbles");
     // ...else, player has won
     } else {

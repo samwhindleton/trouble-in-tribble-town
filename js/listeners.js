@@ -39,7 +39,7 @@ $($startButton).click((event) => {
 // # appends game chars on game round start
 // ########################################
 //
-// ## step 4 ##
+// ## step 3 ##
 // clear screen, append tribbles and $klingons.
 // click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
@@ -59,13 +59,13 @@ const renderGameChars = () => {
   // interval function to pause between appends of tribbles
   const appendTribblesInterval = setInterval(() => {
     // css random animation-duration for .char-animation
-    // generates random number between 2 - 7, used as seconds
-    let animateTime = Math.floor(Math.random() * 7) + 2;
+    // generates random number between 2.8 - 7, used as seconds
+    let animateTime = Math.floor(Math.random() * 7) + 2.8;
     // generates random number between 7 - 17, used for height, width of tribbles
     let $tribbleSize = Math.floor(Math.random() * 17) + 7;
-    // generates random number between 7 - 83
+    // generates random number between -3 - 95
     // used to determin how far left tribble will div will be
-    let $tribblesMoveLeft = Math.floor(Math.random() * 83) + 7;
+    let $tribblesMoveLeft = Math.floor(Math.random() * 95) - 3;
     // if appendTribbles >= gameRoundCharAmount[arrayIndex] -1...
     if (appendTribbles >= gameRoundCharAmount[arrayIndex] - 1) {
       // ...stop appendTribblesInterval function
@@ -153,16 +153,16 @@ const renderGameChars = () => {
   // use random interval from appendKlingonsRandomTime
   // to run appendKlingonsInterval function
   }, appendKlingonsRandomTime);
-  // go to ## step 5 ##
+  // go to ## step 4 ##
   // located in: /js/main.js
-  gameRoundTimer();
+  countdownTimer();
 };
 
 // ########################################
 // # round countdown timer
 // ########################################
 //
-// ## step 3 ##
+// ## step 4 ##
 // countdown timer for round time display
 const countdownTimer = () => {
   // seconds variable, start at 15
@@ -180,6 +180,6 @@ const countdownTimer = () => {
     // start interval again
     seconds -= 1;
   }, 1000);
-  // go to ## step 4 ##
-  renderGameChars();
+  // go to ## step 5 ##
+  gameRoundTimer();
 };
