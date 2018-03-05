@@ -74,8 +74,9 @@ const renderGameChars = () => {
       points += 1;
       // update points display
       $statsPointsNumber.text(points);
-      // remove clicked $tribbles from dom
-      $tribbles.remove();
+      // change visibility to hidden
+      // preserves spacing between $klingons
+      $tribbles.css({"visibility": "hidden"});
     });
     // listen for $klingons click
     $($klingons).click((event) => {
@@ -83,8 +84,9 @@ const renderGameChars = () => {
       points -= 1;
       // update points display
       $statsPointsNumber.text(points);
-      // remove clicked $klingons from dom
-      $klingons.remove();
+      // change visibility to hidden
+      // preserves spacing between $klingons
+      $klingons.css({"visibility": "hidden"});
     });
   // end of for loop
   };
