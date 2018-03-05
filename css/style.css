@@ -148,8 +148,8 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
-  height: 14vmin;
-  width: 14vmin;
+  height: 7vmin;
+  width: 7vmin;
   z-index: 101;
 }
 .klingons {
@@ -157,9 +157,9 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 /* characters animation */
 .char-animation {
-  animation-delay: 1s;
+  /* animation-delay: 1s; */
   animation-duration: var(--animation-time);
-  animation-fill-mode: both;
+  /* animation-fill-mode: both; */
   animation-iteration-count: infinite;
   animation-name: fallDown;
   animation-timing-function: linear;
@@ -167,7 +167,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 @keyframes fallDown {
   /* transform: translate2d(x, y); */
   from {
-    transform: translate(0, -28vh);
+    transform: translate(0, -128vh);
   }
   to {
     transform: translate(0, 128vh);

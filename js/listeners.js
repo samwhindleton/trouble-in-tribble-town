@@ -52,6 +52,15 @@ $($startButton).click((event) => {
 // clear screen, append $tribbles and $klingons.
 // click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
+  // ########################################
+  // # jQuery variables for animation
+  // ########################################
+  //
+  // $size for height and width
+  let $size = Math.floor(Math.random() * 17) + 7;
+  // $left, how far to move left
+  let $left = Math.floor(Math.random() * 100) + 7;
+  //
   // update #round-number display with gameRound[arrayIndex]
   $statsRoundNumber.text(gameRound[arrayIndex]);
   // clear #char-container each round
@@ -62,11 +71,26 @@ const renderGameChars = () => {
     // game charaters variables
     // assign $tribbles to value div.tribble.char-animation
     // add css with random animateTime number
-    const $tribbles = $("<div>").addClass("tribbles char-animation")
-    .css({"--animation-time": animateTime + 's'});
+    const $tribbles = $("<div>")
+      .addClass("tribbles char-animation")
+      .css({"--animation-time": animateTime + 's'})
+      .animate({
+        height: $size + 'vmin',
+        width: $size + 'vmin',
+        left: $left + 'vw',
+      });
     // assign $klingons to value .klingons.char-animation
-    const $klingons = $("<div>").addClass("klingons char-animation")
-    .css({"--animation-time": animateTime + 's'});
+    const $klingons = $("<div>")
+      .addClass("klingons char-animation")
+      .css({"--animation-time": animateTime + 's'})
+      .animate({
+        height: $size + 'vmin',
+        width: $size + 'vmin',
+        left: $left + 'vw',
+        // top: $top + 'vh'
+      });
+
+
     // append $tribbles and $klingons
     $("#char-container").append($tribbles);
     $("#char-container").append($klingons);

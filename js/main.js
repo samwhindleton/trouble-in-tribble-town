@@ -3,8 +3,8 @@
 // ########################################
 //
 // css random animation-duration for .char-animation
-// generates random number between 1.8 - 10, used as seconds
-let animateTime = Math.floor(Math.random() * 10) + 1.8;
+// generates random number between 2 - 7, used as seconds
+let animateTime = Math.floor(Math.random() * 7) + 2;
 
 // player points
 let points = 0;
