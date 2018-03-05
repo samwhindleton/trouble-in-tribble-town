@@ -1,4 +1,13 @@
 /* ****************************************
+  Trouble in Tribble Town
+  CSS variables
+**************************************** */
+:root {
+  /* default animation time */
+  --animation-time: 10s;
+}
+
+/* ****************************************
   CSS RESET
   Much <3 to Eric Meyer
   http://meyerweb.com/eric/tools/css/reset/
@@ -148,25 +157,23 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 /* characters animation */
 .char-animation {
-  animation-duration: 12s;
-  /* animation-iteration-count: infinite; */
-  animation-name: fallingDown;
+  animation-delay: 1s;
+  animation-duration: var(--animation-time);
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: fallDown;
+  animation-timing-function: linear;
 }
-@keyframes fallingDown {
-  /* transform: translate3d(x, y, z); */
-  0% {transform: translate3d(0, -100vh, 0); visibility: visible;}
-  10% {transform: translate3d(0, -50vh, 0);}
-  20% {transform: translate3d(0, 10vh, 0);}
-  30% {transform: translate3d(0, 20vh, 0);}
-  40% {transform: translate3d(0, 30vh, 0);}
-  50% {transform: translate3d(0, 40vh, 0);}
-  60% {transform: translate3d(0, 60vh, 0);}
-  70% {transform: translate3d(0, 70vh, 0);}
-  80% {transform: translate3d(0, 80vh, 0);}
-  90% {transform: translate3d(0, 90vh, 0);}
-  100% {transform: translate3d(0, 100vh, 0); visibility: hidden;}
+@keyframes fallDown {
+  /* transform: translate2d(x, y); */
+  from {
+    transform: translate(0, -28vh);
+  }
+  to {
+    transform: translate(0, 128vh);
+    /* display: none; */
+  }
 }
-
 /* title container */
 #title-container {
   height: 16vh;

@@ -1,3 +1,11 @@
+// ########################################
+// # css variables
+// ########################################
+//
+// css random animation-duration for .char-animation
+// generates random number between 1.8 - 10, used as seconds
+let animateTime = Math.floor(Math.random() * 10) + 1.8;
+
 // player points
 let points = 0;
 // number used to determine game round,

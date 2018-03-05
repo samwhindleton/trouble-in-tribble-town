@@ -61,9 +61,12 @@ const renderGameChars = () => {
   for (let i = 0; i < gameRoundCharAmount[arrayIndex]; i++) {
     // game charaters variables
     // assign $tribbles to value div.tribble.char-animation
-    const $tribbles = $("<div>").addClass("tribbles char-animation");
+    // add css with random animateTime number
+    const $tribbles = $("<div>").addClass("tribbles char-animation")
+    .css({"--animation-time": animateTime + 's'});
     // assign $klingons to value .klingons.char-animation
-    const $klingons = $("<div>").addClass("klingons char-animation");;
+    const $klingons = $("<div>").addClass("klingons char-animation")
+    .css({"--animation-time": animateTime + 's'});
     // append $tribbles and $klingons
     $("#char-container").append($tribbles);
     $("#char-container").append($klingons);
