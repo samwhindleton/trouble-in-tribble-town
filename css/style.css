@@ -67,7 +67,7 @@ table {
 body, #start-button, #start-button h1, #title-container, #social-media-container {
   height: 100vh;
   width: 100vw;
-  background: #fe1476;
+  background: #0f070f;
   cursor: pointer;
   font-family: 'Helvetica', 'Arial', sans-serif;
   /* clip overflow from tribbles and klingons */
@@ -83,21 +83,20 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #container {
   height: 100vh;
   width: 100vw;
-  background: #ece0e5;
   position: relative;
 }
 /* game container */
 #game-container, #start-button, #char-container  {
   height: 100vh;
   width: 100vw;
-  background: limegreen;
+  background: url(/images/space-backgound.png) no-repeat center center;
+  background-size: cover;
   position: absolute;
 }
 /* stats container */
 #stats-container {
   height: 30vmin;
   width: 100vw;
-  background: orange;
   font-family: 'Sarpanch', sans-serif;
   letter-spacing: -0.5vmin;
   position: absolute;
@@ -111,7 +110,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #points, #points h1, #points h2 {
   height: 30vmin;
   width: 31vw;
-  background: pink;
+  color: #f3cea3;
 }
 #round h1, #round h2,
 #timer h1, #timer h2,
@@ -122,12 +121,10 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 #round h1, #timer h1, #points h1 {
   height: 10vmin;
-  background: aqua;
   font-size: 8vmin;
 }
 #round h2, #timer h2, #points h2 {
   height: 20vmin;
-  background: brown;
   font-size: 22vmin;
 }
 /* start button containter */
@@ -137,8 +134,9 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #start-button h1 {
   height: 18vmin;
   width: 60vmin;
-  background: white;
+  background: #f3cea3;
   border-radius: 1vmin;
+  color: #0f070f;
   font-family: 'Sarpanch', sans-serif;
   font-size: 16vmin;
   letter-spacing: -0.5vmin;
@@ -146,9 +144,10 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 /* characters */
 .tribbles, .klingons  {
-  /* position relative to #start-button */
+  /* position absolute to #start-button */
   position: absolute;
-  background: white;
+  background: url(/images/tribble.png) no-repeat center center;
+  background-size: cover;
   border-radius: 50%;
   display: inline-block;
   height: 7vmin;
@@ -156,7 +155,8 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   z-index: 101;
 }
 .klingons {
-  background: red;
+  background: url(/images/klingon.png) no-repeat center center;
+  background-size: cover;
 }
 /* characters animation */
 .char-animation {
@@ -181,7 +181,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #messages-container {
   height: 100vh;
   width: 100vw;
-  background: rgba(214, 214, 214, 0.2);
+  /* background: rgba(244, 206, 163, 0.75); */
   position: absolute;
   visibility: hidden;
   z-index: 102;
@@ -191,9 +191,11 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 #messages {
   max-width: 60vw;
-  background: violet;
+  background: #0f070f;
+  border: 1vmin solid #f4cea3;
   border-radius: 1vmin;
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #f3cea3;
+  font-family: 'Sarpanch', sans-serif;
   font-size: 5vmin;
   padding: 7vmin;
   text-align: center;
@@ -262,15 +264,28 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #social-media-container {
   height: 9vh;
   width: 100vw;
-  background: yellow;
+  background: #f3cea3;
+  color: #0f070f;
   margin-top: 91vh;
-  position: absolute;
+  position: fixed;
+}
+#social-media-container a {
+  color: #bb585c;
+  font-size: 9vmin;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+#social-media-container a:hover {
+  color: #265B53;
+  transform: scale(1.2);
+  transition: all .3s ease-in-out;
 }
 /* title container */
 #title-container {
   height: 16vh;
   width: 100vw;
-  background: aqua;
+  background: #f3cea3;
+  color: #0f070f;
   margin-top: 75vh;
   position: absolute;
 }

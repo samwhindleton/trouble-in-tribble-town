@@ -10,10 +10,11 @@ const gameAudioStart = new Audio("/sounds/background.mp3");
 const klingonSound = new Audio("/sounds/klingon.mp3");
 // tribble sound
 const tribbleSound = new Audio("/sounds/tribble.mp3");
-// page load audio
+// loop sound
 backgroundAudioStart.loop = true;
+gameAudioStart.loop = true;
 // auto play backgroundAudioStart
-// backgroundAudioStart.play();
+backgroundAudioStart.play();
 
 // ########################################
 // # game variables
