@@ -1,3 +1,24 @@
+// ########################################
+// # audio
+// ########################################
+//
+// page load audio
+const backgroundAudioStart = new Audio("/sounds/start.mp3");
+// gsme start audio
+const gameAudioStart = new Audio("/sounds/background.mp3");
+// klingon sound
+const klingonSound = new Audio("/sounds/klingon.mp3");
+// tribble sound
+const tribbleSound = new Audio("/sounds/tribble.mp3");
+// page load audio
+backgroundAudioStart.loop = true;
+// auto play backgroundAudioStart
+// backgroundAudioStart.play();
+
+// ########################################
+// # game variables
+// ########################################
+//
 // player points
 let points = 0;
 // number used to determine game round,
@@ -69,13 +90,3 @@ const startNextRoundCheck = () => {
     };
   };
 };
-
-// // ## step 1 ##
-// // run when start button is clicked
-// const startGame = () => {
-//   // reset arrayIndex and points variables
-//   arrayIndex = 0;
-//   points = 0;
-//   // go to ## step 2 ##
-//   startRound();
-// };

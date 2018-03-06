@@ -249,13 +249,14 @@ const infiniteRenderGameChars = () => {
     $("#char-container").append($tribbles);
     // listen for $tribbles click
     $($tribbles).click((event) => {
+      // play sound
+      tribbleSound.play();
       // add 1 to points
       points += 1;
       // update points display
       $statsPointsNumber.text(points);
-      // change visibility to hidden when clicked
-      // preserves spacing between $klingons
-      $tribbles.css({"visibility": "hidden"}).delay(500).remove();
+      // remove $tribbles from dom
+      $tribbles.remove();
     });
     // update appended tribbles counter
     appendTribbles += 1;
@@ -301,13 +302,14 @@ const infiniteRenderGameChars = () => {
     $("#char-container").append($klingons);
     // listen for $klingons click
     $($klingons).click((event) => {
+      // play sound
+      klingonSound.play();
       // subtract 1 to points
       points -= 1;
       // update points display
       $statsPointsNumber.text(points);
-      // change visibility to hidden when clicked
-      // preserves spacing between $klingons
-      $klingons.css({"visibility": "hidden"}).delay(500).remove();
+      // remove $klingons from dom
+      $klingons.remove();
     });
     // update appended klingons counter
     appendKlingons += 1;
@@ -411,6 +413,7 @@ const infiniteRounds = () => {
 // ########################################
 //
 $($startButton).click((event) => {
+  backgroundAudioStart.pause();
   // reset arrayIndex and points variables
   arrayIndex = 0;
   points = 0;
@@ -421,6 +424,12 @@ $($startButton).click((event) => {
   //
   // go to ## step 1 ##
   gameRoundStart();
+
+  // wait 1 second
+  setTimeout(() => {
+    // play gameAudioStart
+    gameAudioStart.play();
+  }, 1000);
 // end $startButton click event listener function
 });
 
@@ -453,9 +462,9 @@ const renderGameChars = () => {
   // ----------------------------------------
   // appended tribbles counter
   let appendTribbles = 0;
-  // generate random number between 800 - 1000ms,
+  // generate random number between 150 - 350ms,
   // used to append tribbles at random interval
-  let appendTribblesRandomTime = Math.floor(Math.random() * 1000) + 800;
+  let appendTribblesRandomTime = Math.floor(Math.random() * 350) + 150;
   // interval function to pause between appends of tribbles
   const appendTribblesInterval = setInterval(() => {
     // css random animation-duration for .char-animation
@@ -484,15 +493,17 @@ const renderGameChars = () => {
       },);
     // append $tribbles
     $("#char-container").append($tribbles);
+    console.log("Tribbles: " + appendTribbles);
     // listen for $tribbles click
     $($tribbles).click((event) => {
+      // play sound
+      tribbleSound.play();
       // add 1 to points
       points += 1;
       // update points display
       $statsPointsNumber.text(points);
-      // change visibility to hidden when clicked
-      // preserves spacing between $klingons
-      $tribbles.css({"visibility": "hidden"});
+      // remove $tribbles from dom
+      $tribbles.remove();
     });
     // update appended tribbles counter
     appendTribbles += 1;
@@ -505,9 +516,9 @@ const renderGameChars = () => {
   // ----------------------------------------
   // appended klingons counter
   let appendKlingons = 0;
-  // generate random number between 800 - 1000ms,
+  // generate random number between 250 - 500ms,
   // used to append klingons at random interval
-  let appendKlingonsRandomTime = Math.floor(Math.random() * 1000) + 800;
+  let appendKlingonsRandomTime = Math.floor(Math.random() * 500) + 250;
   // interval function to pause between appends of klingons
   const appendKlingonsInterval = setInterval(() => {
     // css random animation-duration for .char-animation
@@ -536,15 +547,17 @@ const renderGameChars = () => {
       },);
     // append $klingons
     $("#char-container").append($klingons);
+    console.log("Klingons: " + appendKlingons);
     // listen for $klingons click
     $($klingons).click((event) => {
+      // play sound
+      klingonSound.play();
       // subtract 1 to points
       points -= 1;
       // update points display
       $statsPointsNumber.text(points);
-      // change visibility to hidden when clicked
-      // preserves spacing between $klingons
-      $klingons.css({"visibility": "hidden"});
+      // remove $klingons from dom
+      $klingons.remove();
     });
     // update appended klingons counter
     appendKlingons += 1;
