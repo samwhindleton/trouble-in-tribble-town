@@ -3,13 +3,13 @@
 // ########################################
 //
 // page load audio
-const backgroundAudioStart = new Audio("/sounds/start.mp3");
+const backgroundAudioStart = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/start.mp3");
 // gsme start audio
-const gameAudioStart = new Audio("/sounds/background.mp3");
+const gameAudioStart = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/background.mp3");
 // klingon sound
-const klingonSound = new Audio("/sounds/klingon.mp3");
+const klingonSound = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/klingon.mp3");
 // tribble sound
-const tribbleSound = new Audio("/sounds/tribble.mp3");
+const tribbleSound = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/tribble.mp3");
 // loop sound
 backgroundAudioStart.loop = true;
 gameAudioStart.loop = true;

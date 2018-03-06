@@ -89,7 +89,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #game-container, #start-button, #char-container  {
   height: 100vh;
   width: 100vw;
-  background: url(/images/space-backgound.png) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/space-backgound.png) no-repeat center center;
   background-size: cover;
   position: absolute;
 }
@@ -146,7 +146,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 .tribbles, .klingons  {
   /* position absolute to #start-button */
   position: absolute;
-  background: url(/images/tribble.png) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribble.png) no-repeat center center;
   background-size: cover;
   border-radius: 50%;
   display: inline-block;
@@ -155,7 +155,7 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
   z-index: 101;
 }
 .klingons {
-  background: url(/images/klingon.png) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/klingon.png) no-repeat center center;
   background-size: cover;
 }
 /* characters animation */
