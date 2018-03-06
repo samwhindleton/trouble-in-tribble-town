@@ -6,6 +6,10 @@
 const $charContainer = $("#char-container");
 // assign $gameContainer to value #game-container
 const $gameContainer = $("#game-container");
+// assign $messagesContainer to value #messages-container
+const $messagesContainer = $("#messages-container");
+// assign $messages to value #messages
+const $messages = $("#messages");
 // assign $titleContainer to value #title-container
 const $titleContainer = $("#title-container");
 // assign $socialMediaContainer to value #social-media-container
@@ -19,34 +23,171 @@ const $statsTimerNumber = $("#timer-number");
 // assign $statsPointsNumber to #points-number
 const $statsPointsNumber = $("#points-number");
 
+
+
 // ########################################
-// # click event listeners
+// # ## STEP 1 ##
+// # START ROUND MESSAGE
+// ########################################
+//
+const gameRoundStart = () => {
+  // update round timer text as 15
+  $statsTimerNumber.text("15");
+  // update #round-number display with gameRounds[arrayIndex]
+  $statsRoundNumber.text(gameRounds[arrayIndex]);
+  // update points display
+  $statsPointsNumber.text(points);
+  // change $messagesContainer to visible
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("ROUND " + gameRounds[arrayIndex]));
+  //
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 2000);
+  //
+  // ...next command
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // go to ## step 2 ##
+    // run function renderGameChars();
+    renderGameChars();
+  }, 1800);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 2800);
+// end gameRoundStart function
+};
+
+// ########################################
+// # PASS ROUND MESSAGE
+// ########################################
+//
+const roundPassed = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  // change $messagesContainer to visible
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("ROUND " + gameRounds[arrayIndex] + " PASSED"));
+  // +1 to the arrayIndex value
+  arrayIndex++;
+  //
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 2000);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 2800);
+  //
+  // ...next command
+  // wait 3 seconds before running inner command
+  setTimeout(() => {
+    // go to startNextRoundCheck();
+    // located in /js/main.js
+    startNextRoundCheck();
+  }, 3000);
+// end roundPassed function
+};
+
+// ########################################
+// # FAIL ROUND MESSAGE
+// ########################################
+//
+const roundFailed = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  // change $messagesContainer to visible
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("ROUND " + gameRounds[arrayIndex] + " FAILED"));
+  //
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 2000);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 2800);
+  //
+  // ...next command
+  // wait 3 seconds before running inner command
+  setTimeout(() => {
+    // go to startNextRoundCheck();
+    // reset function/message?
+  }, 3000);
+// end gameRoundStart function
+};
+
+// ########################################
+// # click event listener
 // # START BUTTON
 // ########################################
 //
 $($startButton).click((event) => {
+  // reset arrayIndex and points variables
+  arrayIndex = 0;
+  points = 0;
   // detach $startButton, $socialMediaContainer, $titleContainer
   $startButton.detach();
   $socialMediaContainer.detach();
   $titleContainer.detach();
+  //
   // go to ## step 1 ##
-  // located in: /js/main.js
-  startGame();
+  gameRoundStart();
 // end $startButton click event listener function
 });
 
+
 // ########################################
-// # appends game chars on game round start
+// # ## STEP 2 ##
+// # APPEND GAME CHARACTERS ON ROUND START
 // ########################################
 //
-// ## step 3 ##
 // clear screen, append tribbles and $klingons.
 // click event listeners for $tribbles and $klingons
 const renderGameChars = () => {
-  // clear #char-container each round
-  $charContainer.empty();
-  // update #round-number display with gameRound[arrayIndex]
-  $statsRoundNumber.text(gameRound[arrayIndex]);
   //
   // ----------------------------------------
   // | append tribbles timed function
@@ -66,8 +207,8 @@ const renderGameChars = () => {
     // generates random number between -3 - 95
     // used to determin how far left tribble will div will be
     let $tribblesMoveLeft = Math.floor(Math.random() * 95) - 3;
-    // if appendTribbles >= gameRoundCharAmount[arrayIndex] -1...
-    if (appendTribbles >= gameRoundCharAmount[arrayIndex] - 1) {
+    // if appendTribbles >= gameRoundsCharAmount[arrayIndex] -1...
+    if (appendTribbles >= gameRoundsCharAmount[arrayIndex] - 1) {
       // ...stop appendTribblesInterval function
       clearInterval(appendTribblesInterval);
     };
@@ -94,7 +235,6 @@ const renderGameChars = () => {
       // preserves spacing between $klingons
       $tribbles.css({"visibility": "hidden"});
     });
-    console.log("Appended Tribbles: " + appendTribbles);
     // update appended tribbles counter
     appendTribbles += 1;
   // use random interval from appendTribblesRandomTime
@@ -119,8 +259,8 @@ const renderGameChars = () => {
     // generates random number between 7 - 83
     // used to determin how far left tribble will div will be
     let $klingonsMoveLeft = Math.floor(Math.random() * 83) + 7;
-    // if appendKlingons >= ((gameRoundCharAmount[arrayIndex]) / 2) - 1)...
-    if (appendKlingons >= ((gameRoundCharAmount[arrayIndex]) / 2) - 2) {
+    // if appendKlingons >= ((gameRoundsCharAmount[arrayIndex]) / 2) - 1)...
+    if (appendKlingons >= ((gameRoundsCharAmount[arrayIndex]) / 2) - 2) {
       // ...stop appendKlingonsInterval function
       clearInterval(appendKlingonsInterval);
     };
@@ -139,31 +279,34 @@ const renderGameChars = () => {
     $("#char-container").append($klingons);
     // listen for $klingons click
     $($klingons).click((event) => {
-      // add 1 to points
-      points += 1;
+      // subtract 1 to points
+      points -= 1;
       // update points display
       $statsPointsNumber.text(points);
       // change visibility to hidden when clicked
       // preserves spacing between $klingons
       $klingons.css({"visibility": "hidden"});
     });
-    console.log("Appended Klingons: " + appendKlingons);
     // update appended klingons counter
     appendKlingons += 1;
   // use random interval from appendKlingonsRandomTime
   // to run appendKlingonsInterval function
   }, appendKlingonsRandomTime);
-  // go to ## step 4 ##
-  // located in: /js/main.js
-  countdownTimer();
+  //
+  // go to ## step 3 ##
+  // wait 400ms before running inner command
+  setTimeout(() => {
+    // run countdownTimer();
+    countdownTimer();
+  }, 400);
 };
 
 // ########################################
-// # round countdown timer
+// # ## STEP 3 ##
+// # ROUND COUNTDOWN TIME DISPLAY
 // ########################################
 //
-// ## step 4 ##
-// countdown timer for round time display
+// countdown timer for round display time
 const countdownTimer = () => {
   // seconds variable, start at 15
   let seconds = 15;
@@ -180,6 +323,8 @@ const countdownTimer = () => {
     // start interval again
     seconds -= 1;
   }, 1000);
-  // go to ## step 5 ##
-  gameRoundTimer();
+  // go to ## step 4 ##
+  // located in /js/main.js
+  checkPlayerScore();
+// end countdownTimer function
 };
