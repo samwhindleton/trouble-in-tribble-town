@@ -154,10 +154,255 @@ const roundFailed = () => {
   // ...next command
   // wait 3 seconds before running inner command
   setTimeout(() => {
-    // go to startNextRoundCheck();
-    // reset function/message?
-  }, 3000);
+    // go to gameReset();
+    gameReset();
+  }, 3200);
 // end gameRoundStart function
+};
+
+// ########################################
+// # TAKEN OVER MESSAGE
+// ########################################
+//
+const takenOverFailed = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  // change $messagesContainer to visible
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("Your ship has been taken over by Klingons!"));
+  //
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 2000);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 2800);
+  //
+  // ...next command
+  // wait 3 seconds before running inner command
+  setTimeout(() => {
+    // go to gameReset();
+    gameReset();
+  }, 3200);
+// end gameRoundStart function
+};
+
+// ########################################
+// # INFINITE GAME
+// # APPEND GAME CHARACTERS INFINITE
+// ########################################
+//
+// clear screen, append tribbles and $klingons.
+// click event listeners for $tribbles and $klingons
+const infiniteRenderGameChars = () => {
+  //
+  // ----------------------------------------
+  // | append tribbles timed function
+  // ----------------------------------------
+  // appended tribbles counter
+  let appendTribbles = 1;
+  // generate random number between 800 - 1000ms,
+  // used to append tribbles at random interval
+  let appendTribblesRandomTime = Math.floor(Math.random() * 1000) + 800;
+  // interval function to pause between appends of tribbles
+  const appendTribblesInterval = setInterval(() => {
+    // css random animation-duration for .char-animation
+    // generates random number between 2.8 - 7, used as seconds
+    let animateTime = Math.floor(Math.random() * 7) + 2.8;
+    // generates random number between 7 - 17, used for height, width of tribbles
+    let $tribbleSize = Math.floor(Math.random() * 17) + 7;
+    // generates random number between -3 - 95
+    // used to determin how far left tribble will div will be
+    let $tribblesMoveLeft = Math.floor(Math.random() * 95) - 3;
+    // if appendTribbles < 0...
+    if (appendTribbles < 0) {
+      // ...stop appendKlingonsInterval function
+      clearInterval(appendKlingonsInterval);
+    };
+    // assign $tribbles to value div.tribble.char-animation
+    // add css with random animateTime number
+    // add animate with random height, size and move left
+    const $tribbles = $("<div>")
+      .addClass("tribbles char-animation")
+      .css({"--animation-time": animateTime + 's'})
+      .animate({
+        height: $tribbleSize + 'vmin',
+        width: $tribbleSize + 'vmin',
+        left: $tribblesMoveLeft + 'vw',
+      },);
+    // append $tribbles
+    $("#char-container").append($tribbles);
+    // listen for $tribbles click
+    $($tribbles).click((event) => {
+      // add 1 to points
+      points += 1;
+      // update points display
+      $statsPointsNumber.text(points);
+      // change visibility to hidden when clicked
+      // preserves spacing between $klingons
+      $tribbles.css({"visibility": "hidden"}).delay(500).remove();
+    });
+    // update appended tribbles counter
+    appendTribbles += 1;
+  // use random interval from appendTribblesRandomTime
+  // to run appendTribblesInterval function
+  }, appendTribblesRandomTime);
+  //
+  // ----------------------------------------
+  // | append klingons timed function
+  // ----------------------------------------
+  // appended klingons counter
+  let appendKlingons = 1;
+  // generate random number between 800 - 1000ms,
+  // used to append klingons at random interval
+  let appendKlingonsRandomTime = Math.floor(Math.random() * 1000) + 800;
+  // interval function to pause between appends of klingons
+  const appendKlingonsInterval = setInterval(() => {
+    // css random animation-duration for .char-animation
+    // generates random number between 2 - 7, used as seconds
+    let animateTime = Math.floor(Math.random() * 7) + 2;
+    // generates random number between 7 - 17, used for height, width of klingons
+    let $tribbleSize = Math.floor(Math.random() * 17) + 7;
+    // generates random number between 7 - 83
+    // used to determin how far left tribble will div will be
+    let $klingonsMoveLeft = Math.floor(Math.random() * 83) + 7;
+    // if appendKlingons < 0)...
+    if (appendKlingons < 0) {
+      // ...stop appendKlingonsInterval function
+      clearInterval(appendKlingonsInterval);
+    };
+    // assign $klingons to value div.tribble.char-animation
+    // add css with random animateTime number
+    // add animate with random height, size and move left
+    const $klingons = $("<div>")
+      .addClass("klingons char-animation")
+      .css({"--animation-time": animateTime + 's'})
+      .animate({
+        height: $tribbleSize + 'vmin',
+        width: $tribbleSize + 'vmin',
+        left: $klingonsMoveLeft + 'vw',
+      },);
+    // append $klingons
+    $("#char-container").append($klingons);
+    // listen for $klingons click
+    $($klingons).click((event) => {
+      // subtract 1 to points
+      points -= 1;
+      // update points display
+      $statsPointsNumber.text(points);
+      // change visibility to hidden when clicked
+      // preserves spacing between $klingons
+      $klingons.css({"visibility": "hidden"}).delay(500).remove();
+    });
+    // update appended klingons counter
+    appendKlingons += 1;
+  // use random interval from appendKlingonsRandomTime
+  // to run appendKlingonsInterval function
+  }, appendKlingonsRandomTime);
+// end infiniteRenderGameChars function
+};
+
+// ########################################
+// # INFINITE GAME RESET
+// ########################################
+//
+const infiniteGameReset = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  // update round timer with ∞
+  $statsTimerNumber.text("∞");
+  // update #round-number display with ∞
+  $statsRoundNumber.text("∞");
+  //
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("READY?!?"));
+  //
+  // wait 5 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 5000);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 5800);
+  //
+  // wait 6.8 seconds before running inner command
+  setTimeout(() => {
+    // run game untill player refresh page
+    infiniteRenderGameChars();
+  }, 6800);
+// end infiniteGameReset function
+};
+
+// ########################################
+// # WON GAME!
+// # UNLOCK ∞ ROUNDS
+// ########################################
+//
+const infiniteRounds = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  // change $messagesContainer to visible
+  $messagesContainer.css({"visibility": "visible"})
+  // add .message-in animation
+  .addClass("messages-in")
+  // add round number as text
+  .append($messages.text("Play for ∞!"));
+  //
+  // wait 2 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // add m.message-out animation
+    $messagesContainer.addClass("messages-out");
+  }, 2000);
+  //
+  // ...next command
+  // wait 2.8 seconds before running inner command
+  // but go to next command...
+  setTimeout(() => {
+    // hide $messagesContainer
+    // and remove classes
+    $messagesContainer
+    .removeClass("messages-in")
+    .removeClass("messages-out")
+    .css({"visibility": "hidden"});
+  }, 2800);
+  //
+  // ...next command
+  // wait 3 seconds before running inner command
+  setTimeout(() => {
+    // go to gameReset();
+    infiniteGameReset();
+  }, 3200);
+// end infiniteRounds function
 };
 
 // ########################################
@@ -169,16 +414,30 @@ $($startButton).click((event) => {
   // reset arrayIndex and points variables
   arrayIndex = 0;
   points = 0;
-  // detach $startButton, $socialMediaContainer, $titleContainer
-  $startButton.detach();
-  $socialMediaContainer.detach();
-  $titleContainer.detach();
+  // hide $startButton, $socialMediaContainer, $titleContainer
+  $startButton.css({"visibility": "hidden"});
+  $socialMediaContainer.css({"visibility": "hidden"});
+  $titleContainer.css({"visibility": "hidden"});
   //
   // go to ## step 1 ##
   gameRoundStart();
 // end $startButton click event listener function
 });
 
+// ########################################
+// # GAME RESET
+// ########################################
+//
+const gameReset = () => {
+  // clear #char-container each round
+  $charContainer.empty();
+  //
+  // show $startButton, $socialMediaContainer, $titleContainer
+  $startButton.css({"visibility": "visible"});
+  $socialMediaContainer.css({"visibility": "visible"});
+  $titleContainer.css({"visibility": "visible"});
+// end gameReset function
+};
 
 // ########################################
 // # ## STEP 2 ##

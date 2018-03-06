@@ -7,7 +7,7 @@ let arrayIndex = 0;
 // number of game rounds
 const gameRounds = [1, 2, 3, 4, 5];
 // number of $tribbles and $klingons per round array
-const gameRoundsCharAmount = [5, 10, 15, 20, 25, 0];
+const gameRoundsCharAmount = [10, 15, 20, 25, 30, 0];
 // number of min score to pass each round
 const gameRoundsMinScore = [1, 5, 10, 15, 20];
 
@@ -45,23 +45,27 @@ const startNextRoundCheck = () => {
   // if arrayIndex value if less than
   // the available rounds...
   if (arrayIndex < gameRounds.length) {
-    // if points >= 0, go to step 3 and render the chars to screen
-    if (points >= 0) {
+    // if points > 0, go to step 3 and render the chars to screen
+    if (points > 0) {
       // go to ## step 1 ##
       // located in: /js/listeners.js
       gameRoundStart();
     // // else player has lost
-    // } else {
-    //   console.log("You've lost");
+    } else {
+      // go to takenOverFailed
+      // located in /js/listeners.js
+      takenOverFailed();
     };
   // ...else if the arrayIndex is >= to the max rounds
 } else if (arrayIndex >= gameRounds.length) {
     // if points < 50, player lost...
     if (points < 50) {
-      console.log("You didn't save enough Tribbles");
+      // go to takenOverFailed
+      // located in /js/listeners.js
+      takenOverFailed();
     // ...else, player has won
     } else {
-      console.log("You won!");
+      infiniteRounds();
     };
   };
 };
