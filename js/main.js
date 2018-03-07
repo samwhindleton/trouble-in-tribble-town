@@ -7,32 +7,32 @@
 // | effects
 // ----------------------------------------
 //
-const appear = new Audio("/sounds/effects/appear.ogg");
+const appear = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/effects/appear.ogg");
 
-const disappear = new Audio("/sounds/effects/disappear.ogg");
+const disappear = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/effects/disappear.ogg");
 
-const lose = new Audio("/sounds/effects/lose.ogg");
+const lose = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/effects/lose.ogg");
 
-const klingonClick = new Audio("/sounds/effects/klingon_click.ogg");
+const klingonClick = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/effects/klingon_click.ogg");
 
-const tribbleClick = new Audio("/sounds/effects/tribble_click.ogg");
+const tribbleClick = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/effects/tribble_click.ogg");
 
 // ----------------------------------------
 // | music
 // ----------------------------------------
 //
 // background music
-const bgmMenu = new Audio("/sounds/music/bgm_menu.mp3");
+const bgmMenu = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_menu.mp3");
 // round 1 music
-const bgmRound1 = new Audio("/sounds/music/bgm_round_1.mp3");
+const bgmRound1 = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_round_1.mp3");
 // round 2 music
-const bgmRound2 = new Audio("/sounds/music/bgm_round_2.mp3");
+const bgmRound2 = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_round_2.mp3");
 // round 3 music
-const bgmRound3 = new Audio("/sounds/music/bgm_round_3.mp3");
+const bgmRound3 = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_round_3.mp3");
 // round 4 music
-const bgmRound4 = new Audio("/sounds/music/bgm_round_4.mp3");
+const bgmRound4 = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_round_4.mp3");
 // round 5 music
-const bgmRound5 = new Audio("/sounds/music/bgm_round_5.mp3");
+const bgmRound5 = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/music/bgm_round_5.mp3");
 //
 // music array
 const bgmArray = [bgmRound1, bgmRound2, bgmRound3, bgmRound4, bgmRound5, bgmMenu];

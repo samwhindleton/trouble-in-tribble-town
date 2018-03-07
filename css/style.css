@@ -135,7 +135,7 @@ body {
 #game-container {
   height: 100vh;
   width: 100vw;
-  background: url("/images/ui/background.svg") no-repeat center center;
+  background: url("https://samwhindleton.github.io/trouble-in-tribble-town/images/ui/background.svg") no-repeat center center;
   background-size: cover;
   position: absolute;
 }
@@ -221,34 +221,34 @@ body {
 .tribbles1, .tribbles2, .tribbles3, .tribbles4, .tribbles5, .klingons1, .klingons2 {
   height: 20vmin;
   width: 20vmin;
-  background: url(/images/tribbles/tribble_1.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribbles/tribble_1.svg) no-repeat center center;
   background-size: cover;
   display: inline-block;
   position: absolute;
   z-index: 3;
 }
 .tribbles2 {
-  background: url(/images/tribbles/tribble_2.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribbles/tribble_2.svg) no-repeat center center;
   background-size: cover;
 }
 .tribbles3 {
-  background: url(/images/tribbles/tribble_3.svg) no-repeat center center;
+  background: url(/https://samwhindleton.github.io/trouble-in-tribble-townimages/tribbles/tribble_3.svg) no-repeat center center;
   background-size: cover;
 }
 .tribbles4 {
-  background: url(/images/tribbles/tribble_4.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribbles/tribble_4.svg) no-repeat center center;
   background-size: cover;
 }
 .tribbles5 {
-  background: url(/images/tribbles/tribble_5.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribbles/tribble_5.svg) no-repeat center center;
   background-size: cover;
 }
 .klingons1 {
-  background: url(/images/klingons/klingon_1.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/klingons/klingon_1.svg) no-repeat center center;
   background-size: cover;
 }
 .klingons2 {
-  background: url(/images/klingons/klingon_2.svg) no-repeat center center;
+  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/klingons/klingon_2.svg) no-repeat center center;
   background-size: cover;
 }
 /* characters animation */
