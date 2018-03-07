@@ -3,8 +3,60 @@
   CSS variables
 **************************************** */
 :root {
+  /* text shadow for game title */
+  --trouble-text:
+  0 0.1vmin 0 hsl(174, 5%, 80%),
+  0 0.2vmin 0 hsl(174, 5%, 75%),
+  0 0.3vmin 0 hsl(174, 5%, 70%),
+  0 0.4vmin 0 hsl(174, 5%, 66%),
+  0 0.5vmin 0 hsl(174, 5%, 64%),
+  0 0.6vmin 0 hsl(174, 5%, 62%),
+  0 0.7vmin 0 hsl(174, 5%, 61%),
+  0 0.8vmin 0 hsl(174, 5%, 60%),
+
+  0 0 0.5vmin rgba(0, 0, 0, 0.05),
+  0 0.1vmin 0.3vmin rgba(0, 0, 0, 0.2),
+  0 0.3vmin 0.5vmin rgba(0, 0, 0, 0.2),
+  0 0.5vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 1vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 2vmin 2vmin rgba(0, 0, 0, 0.3);
+
+  --in-text:
+  0 0.1vmin 0 hsl(160, 21%, 20%),
+  0 0.2vmin 0 hsl(160, 21%, 21%),
+  0 0.3vmin 0 hsl(160, 21%, 22%),
+  0 0.4vmin 0 hsl(160, 21%, 24%),
+  0 0.5vmin 0 hsl(160, 21%, 26%),
+  0 0.6vmin 0 hsl(160, 21%, 30%),
+  0 0.7vmin 0 hsl(160, 21%, 35%),
+  0 0.8vmin 0 hsl(160, 21%, 40%),
+
+  0 0 0.5vmin rgba(0, 0, 0, 0.05),
+  0 0.1vmin 0.3vmin rgba(0, 0, 0, 0.2),
+  0 0.3vmin 0.5vmin rgba(0, 0, 0, 0.2),
+  0 0.5vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 1vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 2vmin 2vmin rgba(0, 0, 0, 0.3);
+
+  --tribble-town-text:
+  0 0.1vmin 0 hsl(161, 27%, 51%),
+  0 0.2vmin 0 hsl(161, 27%, 52%),
+  0 0.3vmin 0 hsl(161, 27%, 53%),
+  0 0.4vmin 0 hsl(161, 27%, 55%),
+  0 0.5vmin 0 hsl(161, 27%, 57%),
+  0 0.6vmin 0 hsl(161, 27%, 61%),
+  0 0.7vmin 0 hsl(161, 27%, 66%),
+  0 0.8vmin 0 hsl(161, 27%, 71%),
+
+  0 0 0.5vmin rgba(0, 0, 0, 0.05),
+  0 0.1vmin 0.3vmin rgba(0, 0, 0, 0.2),
+  0 0.3vmin 0.5vmin rgba(0, 0, 0, 0.2),
+  0 0.5vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 1vmin 1vmin rgba(0, 0, 0, 0.2),
+  0 2vmin 2vmin rgba(0, 0, 0, 0.3);
+
   /* default animation time */
-  --animation-time: 10s;
+  --animation-time: 15s;
 }
 
 /* ****************************************
@@ -64,53 +116,81 @@ table {
 /* ****************************************
   MAIN CSS
 **************************************** */
-body, #start-button, #start-button h1, #title-container, #social-media-container {
+body {
   height: 100vh;
   width: 100vw;
-  background: #0f070f;
   cursor: pointer;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  /* clip overflow from tribbles and klingons */
+  font-family: 'Sarpanch', sans-serif;
+  /* clip overflow from game characters */
   overflow: hidden;
+  /* disable text selection */
   user-select: none;
-  /* flexbox */
-  /* centers child horizontally and vertically */
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 /* main container */
 #container {
   height: 100vh;
   width: 100vw;
-  position: relative;
 }
 /* game container */
-#game-container, #start-button, #char-container  {
+#game-container {
   height: 100vh;
   width: 100vw;
-  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/space-backgound.png) no-repeat center center;
+  background: url("/images/ui/background.svg") no-repeat center center;
   background-size: cover;
   position: absolute;
+}
+/* title container */
+#title-container {
+  height: 40vh;
+  width: 100vw;
+  background: linear-gradient(rgba(199, 204, 203, 0.05), #888787);
+  margin-top: 60vh;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#title-container h1 {
+  position: absolute;
+}
+.title-1 {
+  color: #EAFAF9;
+  font-size: 21.5vmin;
+  letter-spacing: -0.5vmin;
+  text-shadow: var(--trouble-text);
+}
+.title-2 {
+  color: #20322c;
+  font-size: 7vmin;
+  letter-spacing: -0.5vmin;
+  margin-top: 7.5vh;
+  text-shadow: var(--in-text);
+  z-index: 1;
+}
+.title-3 {
+  color: #5BA18B;
+  font-size: 13vmin;
+  letter-spacing: -0.5vmin;
+  margin-top: 11.5vh;
+  text-shadow: var(--tribble-town-text);
 }
 /* stats container */
 #stats-container {
   height: 30vmin;
   width: 100vw;
-  font-family: 'Sarpanch', sans-serif;
   letter-spacing: -0.5vmin;
   position: absolute;
-  z-index: 100;
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 #round, #round h1, #round h2,
 #timer, #timer h1, #timer h2,
 #points, #points h1, #points h2 {
   height: 30vmin;
   width: 31vw;
-  color: #f3cea3;
+  color: #20322c;
 }
 #round h1, #round h2,
 #timer h1, #timer h2,
@@ -122,90 +202,95 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 #round h1, #timer h1, #points h1 {
   height: 10vmin;
   font-size: 8vmin;
+  text-shadow: var(--in-text);
 }
 #round h2, #timer h2, #points h2 {
   height: 20vmin;
   font-size: 22vmin;
+  text-shadow: var(--in-text);
 }
-/* start button containter */
-#start-button, #start-button h1 {
-  position: absolute;
-}
-#start-button h1 {
-  height: 18vmin;
-  width: 60vmin;
-  background: #f3cea3;
-  border-radius: 1vmin;
-  color: #0f070f;
-  font-family: 'Sarpanch', sans-serif;
-  font-size: 16vmin;
-  letter-spacing: -0.5vmin;
-  z-index: 101;
-}
-/* characters */
-.tribbles, .klingons  {
-  /* position absolute to #start-button */
-  position: absolute;
-  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/tribble.png) no-repeat center center;
-  background-size: cover;
-  border-radius: 50%;
-  display: inline-block;
-  height: 7vmin;
-  width: 7vmin;
-  z-index: 101;
-}
-.klingons {
-  background: url(https://samwhindleton.github.io/trouble-in-tribble-town/images/klingon.png) no-repeat center center;
-  background-size: cover;
-}
-/* characters animation */
-.char-animation {
-  /* animation-delay: 1s; */
-  animation-duration: var(--animation-time);
-  /* animation-fill-mode: both; */
-  animation-iteration-count: infinite;
-  animation-name: fall-down;
-  animation-timing-function: linear;
-}
-@keyframes fall-down {
-  /* transform: translate2d(x, y); */
-  from {
-    transform: translate(0, -50vh);
-  }
-  to {
-    transform: translate(0, 128vh);
-    /* display: none; */
-  }
-}
-/* message container */
-#messages-container {
+#characters-container, #messages-container, #start-button {
   height: 100vh;
   width: 100vw;
-  /* background: rgba(244, 206, 163, 0.75); */
   position: absolute;
-  visibility: hidden;
-  z-index: 102;
   align-items: center;
   display: flex;
   justify-content: center;
 }
+/* game characters */
+.tribbles1, .tribbles2, .tribbles3, .tribbles4, .tribbles5, .klingons1, .klingons2 {
+  height: 20vmin;
+  width: 20vmin;
+  background: url(/images/tribbles/tribble_1.svg) no-repeat center center;
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+}
+.tribbles2 {
+  background: url(/images/tribbles/tribble_2.svg) no-repeat center center;
+  background-size: cover;
+}
+.tribbles3 {
+  background: url(/images/tribbles/tribble_3.svg) no-repeat center center;
+  background-size: cover;
+}
+.tribbles4 {
+  background: url(/images/tribbles/tribble_4.svg) no-repeat center center;
+  background-size: cover;
+}
+.tribbles5 {
+  background: url(/images/tribbles/tribble_5.svg) no-repeat center center;
+  background-size: cover;
+}
+.klingons1 {
+  background: url(/images/klingons/klingon_1.svg) no-repeat center center;
+  background-size: cover;
+}
+.klingons2 {
+  background: url(/images/klingons/klingon_2.svg) no-repeat center center;
+  background-size: cover;
+}
+/* characters animation */
+.characters-animation {
+  animation-duration: var(--animation-time);
+  animation-iteration-count: infinite;
+  animation-name: characters-animation;
+  animation-timing-function: ease-in-out;
+}
+@keyframes characters-animation {
+  /* transform: translate(x, y); */
+  from {
+    transform: translate(0, -100vh);
+  }
+  to {
+    transform: translate(0, 200vh);
+  }
+}
+/* messages container */
+#messages-container {
+  /* hide visibility, using jQuery to change */
+  visibility: hidden;
+  z-index: 1;
+}
 #messages {
+  max-height: 60vh;
   max-width: 60vw;
-  background: #0f070f;
-  border: 1vmin solid #f4cea3;
+  background: #20322c;
+  border: 1vmin solid #888787;
   border-radius: 1vmin;
-  color: #f3cea3;
-  font-family: 'Sarpanch', sans-serif;
+  color: #EAFAF9;
   font-size: 5vmin;
   padding: 7vmin;
+  position: absolute;
   text-align: center;
 }
 /* message bounce in animation */
 .messages-in {
-  animation-name: messages-in;
+  animation-name: messages-bounce-in;
   animation-duration: 1.2s;
 }
-@keyframes messages-in {
+@keyframes messages-bounce-in {
   from,
   62%,
   80%,
@@ -233,10 +318,10 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
 }
 /* message bounce out animation */
 .messages-out {
-  animation-name: messages-out;
+  animation-name: messages-bounce-out;
   animation-duration: 1s;
 }
-@keyframes messages-out {
+@keyframes messages-bounce-out {
   from,
   21%,
   37%,
@@ -260,41 +345,63 @@ body, #start-button, #start-button h1, #title-container, #social-media-container
     transform: translate(0, -1600%);
   }
 }
-/* social media container */
-#social-media-container {
-  height: 9vh;
-  width: 100vw;
-  background: #f3cea3;
-  color: #0f070f;
-  margin-top: 91vh;
+/* start button */
+#start-button img {
+  height: 20vmin;
+}
+/* start button animation */
+.start-button-animation {
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+  animation-name: start-button-animation;
+  animation-timing-function: ease-in-out;
+  padding: 2vmin;
+}
+@keyframes start-button-animation {
+  from {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.13, 1.13);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+#info-button img {
+  height: 6vmin;
+  padding: 2vmin;
   position: fixed;
 }
-#social-media-container a {
-  color: #bb585c;
-  font-size: 9vmin;
-  text-decoration: none;
-  transition: all .2s ease-in-out;
-}
-#social-media-container a:hover {
-  color: #265B53;
-  transform: scale(1.2);
-  transition: all .3s ease-in-out;
-}
-/* title container */
-#title-container {
-  height: 16vh;
+#info-container {
+  height: 100vh;
   width: 100vw;
-  background: #f3cea3;
-  color: #0f070f;
-  margin-top: 75vh;
-  position: absolute;
+  position: relative;
+  visibility: hidden;
+  z-index: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
-#title-container h1 {
-  font-family: 'Sarpanch', sans-serif;
-  font-size: 10vmin;
-  letter-spacing: -0.5vmin;
-  text-align: center;
-  position: fixed;
+#info-messages {
+  height: 70vh;
+  width: 70vw;
+  background: #EAFAF9;
+  border-radius: 1vmin;
+  box-shadow: var(--trouble-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8vmin;
+  line-height: 1.2;
+  padding: 5vmin 9vmin;
+  text-align: justify;
+}
+#info-messages img {
+  height: 5vmin;
+  margin: 1vmin;
+}
+#info-messages #close {
+  float: right;
+  height: 3.2vmin;
 }
 
 /* ****************************************

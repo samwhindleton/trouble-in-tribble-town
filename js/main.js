@@ -1,93 +1,75 @@
 // ########################################
-// # audio
+// # sound variables:
+// # effects, music
 // ########################################
 //
-// page load audio
-const backgroundAudioStart = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/start.mp3");
-// gsme start audio
-const gameAudioStart = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/background.mp3");
-// klingon sound
-const klingonSound = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/klingon.mp3");
-// tribble sound
-const tribbleSound = new Audio("https://samwhindleton.github.io/trouble-in-tribble-town/sounds/tribble.mp3");
-// loop sound
-backgroundAudioStart.loop = true;
-gameAudioStart.loop = true;
-// auto play backgroundAudioStart
-backgroundAudioStart.play();
+// ----------------------------------------
+// | effects
+// ----------------------------------------
+//
+const appear = new Audio("/sounds/effects/appear.ogg");
+
+const disappear = new Audio("/sounds/effects/disappear.ogg");
+
+const lose = new Audio("/sounds/effects/lose.ogg");
+
+const klingonClick = new Audio("/sounds/effects/klingon_click.ogg");
+
+const tribbleClick = new Audio("/sounds/effects/tribble_click.ogg");
+
+// ----------------------------------------
+// | music
+// ----------------------------------------
+//
+// background music
+const bgmMenu = new Audio("/sounds/music/bgm_menu.mp3");
+// round 1 music
+const bgmRound1 = new Audio("/sounds/music/bgm_round_1.mp3");
+// round 2 music
+const bgmRound2 = new Audio("/sounds/music/bgm_round_2.mp3");
+// round 3 music
+const bgmRound3 = new Audio("/sounds/music/bgm_round_3.mp3");
+// round 4 music
+const bgmRound4 = new Audio("/sounds/music/bgm_round_4.mp3");
+// round 5 music
+const bgmRound5 = new Audio("/sounds/music/bgm_round_5.mp3");
+//
+// music array
+const bgmArray = [bgmRound1, bgmRound2, bgmRound3, bgmRound4, bgmRound5, bgmMenu];
+//
+// loop background music
+bgmMenu.loop = true;
+// auto play background music
+bgmMenu.play();
 
 // ########################################
-// # game variables
+// # game variables:
+// # characters, player points, arrayIndex,
+// # game round, game round char amount,
+// # game round min score
 // ########################################
 //
-// player points
+// game characters
+const randomKlingon = ["klingons1", "klingons2"];
+const randomTribble = ["tribbles1", "tribbles2", "tribbles3", "tribbles4", "tribbles5"];
+
+// player starting points
 let points = 0;
+// number of tribbles
+let tribbles = 0;
+// number of klingons
+let klingons = 0;
+
 // number used to determine game round,
-// $tribbles and $klingons rendered onto screen,
+// characters generated in round,
 // and min score to play next round
-let arrayIndex = 0;
+let arrIndex = 0;
+
 // number of game rounds
-const gameRounds = [1, 2, 3, 4, 5];
+const gameRound = [1, 2, 3, 4, 5];
+
 // number of $tribbles and $klingons per round array
-const gameRoundsCharAmount = [10, 15, 20, 25, 30, 0];
+const gameRoundCharAmount = [20, 40, 60, 80, 100];
+
 // number of min score to pass each round
-const gameRoundsMinScore = [1, 5, 10, 15, 20];
-
-// ########################################
-// # ## STEP 4 ##
-// # CHECK PLAYER SCORE
-// ########################################
-//
-// checks player score on round end
-const checkPlayerScore = () => {
-  // wait 16 seconds before running inner command
-  setTimeout(() => {
-    // if points are >= to the gameRoundsMinScore index
-    // of the current arrayIndex number,
-    // then player has passed the round...
-    if (points >= gameRoundsMinScore[arrayIndex]) {
-      // go to roundPassed function();
-      // located in /js/listeners.js
-      roundPassed();
-    // ...else player has lost
-    } else {
-      // go to roundFailed function();
-      // located in /js/listeners.js
-      roundFailed();
-    };
-  // 16 seconds
-  }, 16000);
-};
-
-// ########################################
-// # START NEXT ROUND CHECK
-// ########################################
-//
-const startNextRoundCheck = () => {
-  // if arrayIndex value if less than
-  // the available rounds...
-  if (arrayIndex < gameRounds.length) {
-    // if points > 0, go to step 3 and render the chars to screen
-    if (points > 0) {
-      // go to ## step 1 ##
-      // located in: /js/listeners.js
-      gameRoundStart();
-    // // else player has lost
-    } else {
-      // go to takenOverFailed
-      // located in /js/listeners.js
-      takenOverFailed();
-    };
-  // ...else if the arrayIndex is >= to the max rounds
-} else if (arrayIndex >= gameRounds.length) {
-    // if points < 50, player lost...
-    if (points < 50) {
-      // go to takenOverFailed
-      // located in /js/listeners.js
-      takenOverFailed();
-    // ...else, player has won
-    } else {
-      infiniteRounds();
-    };
-  };
-};
+const gameRoundMinScore = [5, 10, 15, 20, 25];

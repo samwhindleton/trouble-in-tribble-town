@@ -19,62 +19,77 @@
     <!-- font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <!-- favicon -->
-    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="images/ui/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
+    <!-- container -->
     <div id="container">
-
+      <!-- game container -->
       <div id="game-container">
+        <!-- title container -->
+        <div id="title-container">
+          <h1 class="title-1">Trouble</h1>
+          <h1 class="title-2">in</h1>
+          <h1 class="title-3">Tribble Town</h1>
+        </div>
+        <!-- stats container, round, timer, points -->
         <div id="stats-container">
+          <!-- round -->
           <div id="round">
             <h1>ROUND</h1>
             <h2 id="round-number">00</h2>
           </div>
-
+          <!-- timer -->
           <div id="timer">
             <h1>TIME</h1>
             <h2 id="timer-number">00</h2>
           </div>
-
+          <!-- points -->
           <div id="points">
             <h1>POINTS</h1>
             <h2 id="points-number">00</h2>
           </div>
-        <!-- end of #stats-container -->
+        <!-- end of stats container, round, timer, points -->
+        </div>
+        <!-- character container -->
+        <div id="characters-container">
+
         </div>
 
+        <!-- messages container -->
+        <div id="messages-container">
+          <h1 id="messages"></h1>
+
+        </div>
+        <!-- start button -->
         <div id="start-button">
-          <h1>START</h1>
+          <img class="start-button-animation" src="/images/ui/start_button.svg" alt="">
         </div>
-        <!-- end of #start-button -->
 
-        <div id="char-container">
+        <div id="info-button">
+          <img class="info" src="/images/ui/info.svg" alt="">
+        </div>
 
-        <!-- end of #char-container -->
+        <!-- info container -->
+        <div id="info-container">
+          <h1 id="info-messages">
+            <img id="close" src="/images/ui/close.svg" alt=""><br><br>
+            You've responded to a destress call from the Tribble homeworld, Iota Geminorum IV. The Tribble's are currently under attack by a Klingon armada that was sent by the Klingon Empire to destroy the Tribble homeworld.<br><br>The Tribble's have no means of defense and you're the only ship around for lightyears in this star system. It's up to you to save the Tribbles from the Klingon's!<br><br><br>
+            Save the Tribbles<br><br>
+            <img src="/images/tribbles/tribble_1.svg" alt="">
+            <img src="/images/tribbles/tribble_2.svg" alt="">
+            <img src="/images/tribbles/tribble_3.svg" alt="">
+            <img src="/images/tribbles/tribble_4.svg" alt="">
+            <img src="/images/tribbles/tribble_5.svg" alt=""><br><br>
+            Avoid the Klingons<br><br>
+            <img src="/images/klingons/klingon_1.svg" alt="">
+            <img src="/images/klingons/klingon_2.svg" alt="">
+          </h1>
         </div>
 
       <!-- end of #game-container -->
       </div>
-
-      <div id="messages-container">
-        <h1 id="messages"></h1>
-      </div>
-      <!-- end of #message-container -->
-
-      <div id="social-media-container">
-        <a href="https://github.com/samwhindleton/trouble-in-tribble-town" target="_blank">
-          <span class="fab fa-github-alt"></span>
-        </a>
-
-      <!-- end of #social-media-container -->
-      </div>
-
-      <div id="title-container">
-        <h1>Trouble in Tribble Town</h1>
-      <!-- end of #title-container -->
-      </div>
-
     <!-- end of #container -->
     </div>
 
@@ -85,5 +100,4 @@
     <!-- jQuery script -->
     <script src="js/listeners.js"></script>
   </body>
-
 </html>
