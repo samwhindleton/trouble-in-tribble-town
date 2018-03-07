@@ -135,6 +135,7 @@ const unlock = () => {
 //
 const defeat = () => {
   // clear characters container
+  bgmArray[arrIndex].pause();
   $charContainer.empty();
 
   $messagesContainer.css({"visibility": "visible"})
