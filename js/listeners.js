@@ -167,6 +167,8 @@ const defeat = () => {
 const roundPassed = () => {
   // clear #char-container each round
   $charContainer.empty();
+  tribbles = 0;
+  klingons = 0;
   // change $messagesContainer to visible
   $messagesContainer.css({"visibility": "visible"})
   // add .message-in animation
@@ -443,6 +445,8 @@ const gameRoundCheck = () => {
 const gameReset = () => {
   arrIndex = 0;
   points = 0;
+  tribbles = 0;
+  klingons = 0;
   $statsRoundNumber.text("00");
   $statsTimerNumber.text("00");
   $statsPointsNumber.text("00");
